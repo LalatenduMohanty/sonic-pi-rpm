@@ -147,6 +147,10 @@ cp -ra  app/server/ruby/bin/* %{buildroot}%{_datadir}/%{name}/app/server/ruby/bi
 %if 0%{?fedora} >= 34
 %define rb_version "3.0.0"
 %endif
+%if 0%{?fedora} >= 36
+%define rb_version "3.1.0"
+%endif
+
 
 mkdir -p %{buildroot}%{_datadir}/%{name}/app/server/ruby/rb-native/%{rb_version}/
 
@@ -222,6 +226,9 @@ desktop-file-install --vendor '' \
 %{_datadir}
 
 %changelog
+* Sat Oct 1 2022 Lalatendu Mohanty <lmohanty@redhat.com> 3.3.1-10
+- Fixing the ruby version for Fedora 36
+
 * Mon Mar 29 2021 Yann Collette <ycollette.nospam@free.fr> 3.3.1-10
 - update to 3.3.1-10 - fixed for Fedora 34
 
